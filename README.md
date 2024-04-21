@@ -1,16 +1,29 @@
-# TC3002B_Fase2B
-Se recomienda crear un entorno virtual:
-python -m venv ./myenv
-source ./myenv/bin/activate
-pip install -r requirements.txt
+## TC3002B_Fase2B
 
-Se clona el repositorio:
-git clone https://github.com/facebooker212/TC3002B_Fase2B
-cd TC3002B_Fase2B
-Crear entorno virtual
-python main.py
+### Recomendaciones:
 
-El reporte se guarda en el mismo directorio
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/facebooker212/TC3002B_Fase2B
+   cd TC3002B_Fase2B
+   ```
+2. **Crear un entorno virtual:**
+   ```bash
+   python -m venv ./myenv
+   source ./myenv/bin/activate
+   pip install -r requirements.txt
+   ```
+   
+### Ejecución:
 
-Para ejecutar las pruebas:
-python test_plagiarism.py
+1. **Script principal:**
+   ```bash
+   python main.py
+   ```
+   El reporte se guarda en el mismo directorio.
+   Las gráficas se muestran al terminar la ejecución.
+
+3. **Ejecutar las pruebas:**
+   ```bash
+   python test_plagiarism.py
+   ```
