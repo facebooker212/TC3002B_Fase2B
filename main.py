@@ -139,7 +139,7 @@ def detect_plagiarism(source_dir, target_dir):
     
     for source_filename in os.listdir(source_dir):
         source_file_path = os.path.join(source_dir, source_filename)
-        with open(source_file_path, 'r') as source_file:
+        with open(source_file_path, 'r', encoding='latin-1') as source_file:
             source_text = source_file.read()
         
         for target_filename in os.listdir(target_dir):
@@ -179,8 +179,8 @@ def save_plagiarism_report(plagiarism_scores):
                 output_file.write(f"Levenshtein Similarity: {levenshtein_percentage:.2f}%\n")
                 output_file.write(f"Cosine Similarity: {cosine_percentage:.2f}%\n")
                 for suspected_portion in similarity_scores['suspected_portions']:
-                    output_file.write(f"Original: {suspected_portion[1]}\n")
-                    output_file.write(f"Suspected Plagiarism: {suspected_portion[0]}\n\n")
+                    output_file.write(f"Original: {suspected_portion[0]}\n")
+                    output_file.write(f"Suspected Plagiarism: {suspected_portion[1]}\n\n")
 
     print(f"Plagiarism report saved to {output_filename}")
 
@@ -242,7 +242,7 @@ def plot_roc_curve(metrics):
 # Termina visualización de resultados y comprobación 
 
 if __name__ == '__main__':
-    plagiarism_scores = detect_plagiarism('./suspicious/', './original/')
+    plagiarism_scores = detect_plagiarism('./original/', './suspicious/')
     save_plagiarism_report(plagiarism_scores)
     labels = classify_plagiarism(levenshtein_scores, cosine_scores)
     metrics = calculate_metrics(levenshtein_scores, cosine_scores, labels)
