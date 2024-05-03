@@ -1,3 +1,10 @@
+"""
+Desarrollo de Aplicaciones Avanzadas de Ciencias
+Computacionales
+TC3002B
+Mayra Fernanda Camacho Rodriguez A01378998
+Victor Martinez Roman A01746361
+"""
 import os
 import re
 import nltk
@@ -49,7 +56,6 @@ def detect_plagiarism(similarity_scores, levenshtein_scores, original_docs, susp
             cosine_sim = similarity_scores[i][j]
             levenshtein_score = levenshtein_scores[i][j]
             if cosine_sim > threshold or levenshtein_score > levenshtein_threshold:
-            #if True:
                 is_copy = "Si"
                 original_file = os.listdir(original_folder)[j]
                 plagiarism_percentage = round(cosine_sim * 100, 2)
@@ -105,10 +111,10 @@ def main(original_folder, suspicious_folder):
         print(f"{result['suspicious_file']}\t\t{result['is_copy']}\t{result['original_file']}\t\t{result['plagiarism_percentage']}\t\t{result['plagiarism_type']}")
 
 if __name__ == "__main__":
-    #try:
-    #    nltk.find('punkt')
-    #except:
-    #    nltk.download('punkt')
+    try:
+        nltk.find('punkt')
+    except:
+        nltk.download('punkt')
     original_folder = "./original/"
     suspicious_folder = "./suspicious_2/"
     main(original_folder, suspicious_folder)
